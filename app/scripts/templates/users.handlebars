@@ -1,0 +1,29 @@
+<div class="hero-unit">
+    <h1>Users</h1>
+</div>
+
+<div id="content_holder">
+    <table id="users_list" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Avatar</th>
+            <th>Visible Name</th>
+            <th>Contacts</th>
+            <th>Groups</th>
+        </tr>
+        </thead>
+        <tbody class=".users">
+            {{#each controller}}
+            <tr>
+                <td>{{#if avatar}}<img src="{{pictureUrl}}" class="img-rounded" width="32" height="32">{{/if}}
+                </td>
+                <td>
+                    {{#linkTo user this}}{{name}}{{/linkTo}}
+                </td>
+                <td>{{#each contacts}}{{#if email}}{{this}}\n{{/if}}{{#jabber}}{{this}}\n{{/jabber}}{{/each}}</td>
+                <td>{{#each groups}}{{name}}, {{/each}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
