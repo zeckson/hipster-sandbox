@@ -26,4 +26,4 @@ I'd also like to extract some of the patterns from this example into yeoman gene
 
 ## License
 
-Copyright 2012 Dan Gebhardt. MIT License (see LICENSE for details).
+Copyright 2013 Evgenii Shchepotev. MIT License (see LICENSE for details).
