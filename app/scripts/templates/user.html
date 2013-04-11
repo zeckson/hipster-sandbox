@@ -4,11 +4,10 @@
 
 <div id="content_holder">
     <div id="user-profile" class="row-fluid">
-        <div class="span4">{{#if avatar}}<img {{bindAttr src="avatar.pictureUrl"}} width="32" height="32"/>{{/if}}}
+        <div class="span4"><img ng-src="avatar.pictureUrl" width="32" height="32"/>
             <div class="visibleName">{{name}}</div>
         </div>
-        <div class="span4">{{#each contacts}}{{#if email}}{{this}}\n{{/if}}{{#if jabber}}{{this}}
-            \n{{/if}}{{/each}}</div>
+        <div class="span4">contacts</div>
     </div>
 
     <a href="javascript:void(0)" onclick="history.back()">&lt;- Back</a>
