@@ -1,4 +1,4 @@
-angular.module('users', ['store']).
+angular.module('users', ['store', 'templates-main']).
     controller("userListController", ["$scope", 'User', function ($scope, userResource) {
         var result = userResource.query();
         $scope.page = result;
@@ -17,7 +17,7 @@ angular.module('users', ['store']).
     }]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.
-            when('/users', {templateUrl: 'scripts/templates/users.html', controller: "userListController"}).
-            when('/users/:id', {templateUrl: 'scripts/templates/user.html', controller: "userController"}).
+            when('/users', {templateUrl: 'users.tpl.html', controller: "userListController"}).
+            when('/users/:id', {templateUrl: 'user.tpl.html', controller: "userController"}).
             otherwise({redirectTo: '/users'});
     }]);

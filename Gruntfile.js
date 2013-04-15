@@ -21,22 +21,8 @@ module.exports = function (grunt) {
         dist: 'dist'
     };
 
-    grunt.loadNpmTasks('grunt-ember-templates');
-
     grunt.initConfig({
         yeoman: yeomanConfig,
-        ember_templates: {
-            compile: {
-                options: {
-                    templateName: function(sourceFile) {
-                        return sourceFile.replace(/app\/scripts\/templates\//, '');
-                    }
-                },
-                files: {
-                    "app/scripts/templates.js": "app/scripts/templates/**/*.handlebars"
-                }
-            }
-        },
         watch: {
             coffee: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
@@ -46,9 +32,9 @@ module.exports = function (grunt) {
                 files: ['test/spec/{,*/}*.coffee'],
                 tasks: ['coffee:test']
             },
-            ember_templates: {
-                files: ['app/scripts/{,*/}*.handlebars'],
-                tasks: ['ember_templates', 'livereload']
+            html2js: {
+                files: ['app/scripts/{,*/}*.tpl.html'],
+                tasks: ['html2js', 'livereload']
             },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -127,6 +113,15 @@ module.exports = function (grunt) {
                     run: true,
                     urls: ['http://localhost:<%= connect.options.port %>/index.html']
                 }
+            }
+        },
+        html2js: {
+            options: {
+                base: '<%= yeoman.app %>/scripts/templates'
+            },
+            main: {
+                src: ['<%= yeoman.app %>/scripts/templates/*.tpl.html'],
+                dest: '<%= yeoman.app %>/scripts/templates.js'
             }
         },
         coffee: {
@@ -265,7 +260,7 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
-            'ember_templates',
+            'html2js',
             'clean:server',
             'coffee:dist',
             'compass:server',
