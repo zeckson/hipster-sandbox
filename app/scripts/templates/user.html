@@ -1,13 +1,18 @@
 <div class="hero-unit">
-    <h1>Users -> {{name}}</h1>
+    <h1>Users -> {{user.name}}</h1>
 </div>
 
 <div id="content_holder">
     <div id="user-profile" class="row-fluid">
-        <div class="span4"><img ng-src="avatar.pictureUrl" width="32" height="32"/>
-            <div class="visibleName">{{name}}</div>
+        <div class="span4"><img ng-src="{{user.avatar.pictureUrl}}" width="32" height="32"/>
+
+            <div class="visibleName">{{user.name}}</div>
         </div>
-        <div class="span4">contacts</div>
+        <div class="span4">contacts:
+            <ul>
+                <li ng-repeat="contact in user.contacts">{{contact.email}}</li>
+            </ul>
+        </div>
     </div>
 
     <a href="javascript:void(0)" onclick="history.back()">&lt;- Back</a>

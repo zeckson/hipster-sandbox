@@ -13,15 +13,24 @@
         </tr>
         </thead>
         <tbody class=".users">
-            <tr ng-repeat="user in users">
-                <td>{{i}}
-                </td>
-                <td>
-                    username of {{i}}
-                </td>
-                <td>contacts of {{i}}</td>
-                <td>groups of {{i}}</td>
-            </tr>
+        <tr ng-repeat="user in page.users">
+            <td>
+                <img ng-src="{{user.avatar.pictureUrl}}" class="img-rounded" width="32" height="32">
+            </td>
+            <td>
+                <a href="#/users/{{user.id}}">{{user.name}}</a>
+            </td>
+            <td>
+                <ul>
+                    <li ng-repeat="contact in user.contacts">{{contact.email}}</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li ng-repeat="group in user.groups">{{contact.group}}</li>
+                </ul>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>

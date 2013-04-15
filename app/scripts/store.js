@@ -2,9 +2,10 @@
 angular.module('store', ['ngResource']).
     factory('User', function ($resource) {
         var User = $resource('http://localhost\\:8080/rest' +
-            '/users',
+            '/users/:id',
             {fields: 'id,name,avatar,contacts,groups(name)'}, {
-                update: { method: 'PUT' }
+                'update': { method: 'POST' },
+                'query': {method: 'GET', isArray: false}
             }
         );
         return User;
