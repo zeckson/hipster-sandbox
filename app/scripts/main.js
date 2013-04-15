@@ -1,6 +1,7 @@
-angular.module('users', []).
-    controller("userListController", ["$scope", function ($scope) {
-        $scope.hello = "hi!";
+angular.module('users', ['store']).
+    controller("userListController", ["$scope", 'User', function ($scope, userResource) {
+        var result = userResource.query();
+        $scope = result.users;
     }]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.
