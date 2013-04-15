@@ -1,10 +1,8 @@
 angular.module('users', ['store', 'templates-main']).
     controller("userListController", ["$scope", 'User', function ($scope, userResource) {
-        var result = userResource.query();
-        $scope.page = result;
+        $scope.page = userResource.query();
     }]).controller("userController", ["$scope", '$routeParams', 'User', function ($scope, $routeParams, userResource) {
-        var result = userResource.get({'id': $routeParams.id});
-        $scope.user = result;
+        $scope.user = userResource.get({'id': $routeParams.id});
         $scope.update = function(){
             var updatedUser = angular.copy($scope.user);
             //Workaround over Jersey deserializer if property exists it returns empty list =(
