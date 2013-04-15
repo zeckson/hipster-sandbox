@@ -5,16 +5,8 @@
     "sass-bootstrap": "~2.3.0",
     "requirejs": "~2.1.4",
     "jquery": "~1.8.1",
-    "backbone": "~0.9.10",
-    "cors": "https://github.com/Ovea/cors.git",
-    "dustjs": "https://github.com/linkedin/dustjs.git",
-    "jquery_jeditable": "https://github.com/tuupola/jquery_jeditable.git#~1.7.2",
-    "json2": "",
-    "underscore": "~1.4.4",
-    "layoutmanager": "~0.8.4",
-    "backbone-relational": "~0.8.0",
-    "ember.js": "~1.0.0-rc.1",
-    "angular": "~1.0.6"
+    "angular": "~1.0.6",
+    "angular-resource": "~1.0.6"
   },
   "devDependencies": {}
 }
