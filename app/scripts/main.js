@@ -5,6 +5,14 @@ angular.module('users', ['store']).
     }]).controller("userController", ["$scope", '$routeParams', 'User', function ($scope, $routeParams, userResource) {
         var result = userResource.get({'id': $routeParams.id});
         $scope.user = result;
+        $scope.update = function(){
+
+            var updatedUser = angular.copy($scope.user);
+            delete updatedUser.contacts;
+            delete updatedUser.groups;
+            delete updatedUser.avatar;
+            updatedUser.$save();
+        }
     }]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.
